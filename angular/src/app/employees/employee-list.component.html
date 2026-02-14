@@ -1,0 +1,53 @@
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h5 class="card-title mb-0">Employees</h5>
+    <a *abpPermission="permissions.employees.create" class="btn btn-primary" routerLink="/employees/create">New Employee</a>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Company</th>
+            <th class="text-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @if (loading) {
+            <tr>
+              <td colspan="5" class="text-center py-4">Loading...</td>
+            </tr>
+          } @else {
+            @for (item of list.items; track item.id) {
+              <tr>
+                <td>{{ item.firstName ?? '-' }}</td>
+                <td>{{ item.lastName ?? '-' }}</td>
+                <td>{{ item.email ?? '-' }}</td>
+                <td>{{ item.companyName ?? '-' }}</td>
+                <td class="text-end">
+                  <a *abpPermission="permissions.employees.update" class="btn btn-sm btn-outline-primary me-1" [routerLink]="['/employees', item.id, 'edit']">Edit</a>
+                  <button *abpPermission="permissions.employees.delete" type="button" class="btn btn-sm btn-outline-danger" (click)="delete(item.id)">Delete</button>
+                </td>
+              </tr>
+            }
+            @if (list.items.length === 0 && !loading) {
+              <tr>
+                <td colspan="5" class="text-center text-muted py-4">No employees yet. Create one.</td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+    </div>
+    @if (list.totalCount > input.maxResultCount) {
+      <nav class="mt-2">
+        <button type="button" class="btn btn-sm btn-outline-secondary me-1" [disabled]="input.skipCount === 0" (click)="pageChanged(input.skipCount - input.maxResultCount)">Previous</button>
+        <span class="align-middle me-2">{{ input.skipCount + 1 }}-{{ input.skipCount + list.items.length }} of {{ list.totalCount }}</span>
+        <button type="button" class="btn btn-sm btn-outline-secondary" [disabled]="input.skipCount + input.maxResultCount >= list.totalCount" (click)="pageChanged(input.skipCount + input.maxResultCount)">Next</button>
+      </nav>
+    }
+  </div>
+</div>

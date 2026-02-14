@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header">
+    <h5 class="card-title mb-0">{{ id ? 'Edit' : 'New' }} Company</h5>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="mb-3" validationTarget>
+        <label class="form-label" for="name">Name</label>
+        <input id="name" type="text" class="form-control" formControlName="name" />
+      </div>
+      <div class="mb-3" validationTarget>
+        <label class="form-label" for="address">Address</label>
+        <input id="address" type="text" class="form-control" formControlName="address" />
+      </div>
+      <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid || saving">
+          {{ saving ? 'Saving...' : 'Save' }}
+        </button>
+        <a class="btn btn-secondary" routerLink="/companies">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>

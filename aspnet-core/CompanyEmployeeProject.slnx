@@ -1,0 +1,36 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CompanyEmployeeProject.AppHost/CompanyEmployeeProject.AppHost.csproj" />
+    <Project Path="src/CompanyEmployeeProject.Application.Contracts/CompanyEmployeeProject.Application.Contracts.csproj" />
+    <Project Path="src/CompanyEmployeeProject.Application/CompanyEmployeeProject.Application.csproj" />
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <Project Path="src/CompanyEmployeeProject.DbMigrator/CompanyEmployeeProject.DbMigrator.csproj" />
+    <Project Path="src/CompanyEmployeeProject.Domain.Shared/CompanyEmployeeProject.Domain.Shared.csproj" />
+    <Project Path="src/CompanyEmployeeProject.Domain/CompanyEmployeeProject.Domain.csproj" />
+    <Project Path="src/CompanyEmployeeProject.EntityFrameworkCore/CompanyEmployeeProject.EntityFrameworkCore.csproj" />
+    <Project Path="src/CompanyEmployeeProject.HttpApi.Client/CompanyEmployeeProject.HttpApi.Client.csproj" />
+    
+    <Project Path="src/CompanyEmployeeProject.HttpApi.Host/CompanyEmployeeProject.HttpApi.Host.csproj" />
+    <Project Path="src/CompanyEmployeeProject.HttpApi/CompanyEmployeeProject.HttpApi.csproj" />
+    
+    
+    
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/CompanyEmployeeProject.Application.Tests/CompanyEmployeeProject.Application.Tests.csproj" />
+    <Project Path="test/CompanyEmployeeProject.Domain.Tests/CompanyEmployeeProject.Domain.Tests.csproj" />
+    <Project Path="test/CompanyEmployeeProject.EntityFrameworkCore.Tests/CompanyEmployeeProject.EntityFrameworkCore.Tests.csproj" />
+    <Project Path="test/CompanyEmployeeProject.HttpApi.Client.ConsoleTestApp/CompanyEmployeeProject.HttpApi.Client.ConsoleTestApp.csproj" />
+    
+    <Project Path="test/CompanyEmployeeProject.TestBase/CompanyEmployeeProject.TestBase.csproj" />
+    
+  </Folder>
+</Solution>

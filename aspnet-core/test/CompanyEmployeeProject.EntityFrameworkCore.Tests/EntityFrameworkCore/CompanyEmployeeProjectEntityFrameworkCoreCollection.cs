@@ -1,0 +1,9 @@
+﻿using Xunit;
+
+namespace CompanyEmployeeProject.EntityFrameworkCore;
+
+[CollectionDefinition(CompanyEmployeeProjectTestConsts.CollectionDefinitionName)]
+public class CompanyEmployeeProjectEntityFrameworkCoreCollection : ICollectionFixture<CompanyEmployeeProjectEntityFrameworkCoreFixture>
+{
+
+}

@@ -1,0 +1,24 @@
+{
+  "culture": "ar",
+  "texts": {
+    "AppName": "CompanyEmployeeProject",
+    "Menu:Home": "الصفحة الرئيسية",
+    "Welcome": "مرحباً",
+    "LongWelcomeMessage": "مرحبا بكم في التطبيق. هذا مشروع بدء تشغيل يعتمد على إطار عمل ABP. لمزيد من المعلومات ، يرجى زيارة abp.io.",
+    "Permission:Companies": "الشركات",
+    "Permission:Companies.Create": "إنشاء شركة",
+    "Permission:Companies.Update": "تحديث شركة",
+    "Permission:Companies.Delete": "حذف شركة",
+    "Permission:Employees": "الموظفون",
+    "Permission:Employees.Create": "إنشاء موظف",
+    "Permission:Employees.Update": "تحديث موظف",
+    "Permission:Employees.Delete": "حذف موظف",
+    "Permission:Projects": "المشاريع",
+    "Permission:Projects.Create": "إنشاء مشروع",
+    "Permission:Projects.Update": "تحديث مشروع",
+    "Permission:Projects.Delete": "حذف مشروع",
+    "Companies": "الشركات",
+    "Employees": "الموظفون",
+    "Projects": "المشاريع"
+  }
+}

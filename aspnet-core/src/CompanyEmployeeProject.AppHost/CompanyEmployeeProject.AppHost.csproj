@@ -1,0 +1,31 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.1.0">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.JavaScript" Version="13.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CompanyEmployeeProject.HttpApi.Host\CompanyEmployeeProject.HttpApi.Host.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="AsyncFixer" Version="2.1.0" />
+    <PackageReference Update="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.102" />
+    <PackageReference Update="SonarAnalyzer.CSharp" Version="10.19.0.132793" />
+  </ItemGroup>
+
+  <Target Name="RestoreNpm" BeforeTargets="Build" Condition=" '$(DesignTimeBuild)' != 'true' ">
+    <ItemGroup>
+      <PackageJsons Include="..\..\..\angular\package.json" />
+    </ItemGroup>
+    <Message Importance="Normal" Text="Installing npm packages for %(PackageJsons.RelativeDir)" Condition="!Exists('%(PackageJsons.RootDir)%(PackageJsons.Directory)/node_modules')" />
+    <Exec Command="npm install" WorkingDirectory="%(PackageJsons.RootDir)%(PackageJsons.Directory)" Condition="!Exists('%(PackageJsons.RootDir)%(PackageJsons.Directory)/node_modules')" />
+  </Target>
+
+</Project>
