@@ -1,0 +1,63 @@
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h5 class="card-title mb-0">Tasks</h5>
+    <a *abpPermission="permissions.tasks.create" class="btn btn-primary" routerLink="/tasks/create">New Task</a>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Due Date</th>
+            <th>Project</th>
+            <th>Assigned To</th>
+            <th class="text-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @if (loading) {
+            <tr>
+              <td colspan="6" class="text-center py-4">Loading...</td>
+            </tr>
+          } @else {
+            @for (item of list.items; track item.id) {
+              <tr>
+                <td>{{ item.title ?? '-' }}</td>
+                <td>
+                  <span class="badge" [ngClass]="{
+                    'bg-secondary': item.status === 0,
+                    'bg-primary': item.status === 1,
+                    'bg-success': item.status === 2
+                  }">
+                    {{ getStatusLabel(item.status) }}
+                  </span>
+                </td>
+                <td>{{ formatDate(item.dueDate) }}</td>
+                <td>{{ item.projectName ?? '-' }}</td>
+                <td>{{ item.assignedToName ?? 'Unassigned' }}</td>
+                <td class="text-end">
+                  <a *abpPermission="permissions.tasks.update" class="btn btn-sm btn-outline-primary me-1" [routerLink]="['/tasks', item.id, 'edit']">Edit</a>
+                  <button *abpPermission="permissions.tasks.delete" type="button" class="btn btn-sm btn-outline-danger" (click)="delete(item.id)">Delete</button>
+                </td>
+              </tr>
+            }
+            @if (list.items.length === 0 && !loading) {
+              <tr>
+                <td colspan="6" class="text-center text-muted py-4">No tasks yet. Create one.</td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+    </div>
+    @if (list.totalCount > input.maxResultCount) {
+      <nav class="mt-2">
+        <button type="button" class="btn btn-sm btn-outline-secondary me-1" [disabled]="input.skipCount === 0" (click)="pageChanged(input.skipCount - input.maxResultCount)">Previous</button>
+        <span class="align-middle me-2">{{ input.skipCount + 1 }}-{{ input.skipCount + list.items.length }} of {{ list.totalCount }}</span>
+        <button type="button" class="btn btn-sm btn-outline-secondary" [disabled]="input.skipCount + input.maxResultCount >= list.totalCount" (click)="pageChanged(input.skipCount + input.maxResultCount)">Next</button>
+      </nav>
+    }
+  </div>
+</div>

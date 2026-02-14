@@ -24,6 +24,11 @@ public class CompanyEmployeeProjectPermissionDefinitionProvider : PermissionDefi
         projects.AddChild(CompanyEmployeeProjectPermissions.Projects.Create, L("Permission:Projects.Create"));
         projects.AddChild(CompanyEmployeeProjectPermissions.Projects.Update, L("Permission:Projects.Update"));
         projects.AddChild(CompanyEmployeeProjectPermissions.Projects.Delete, L("Permission:Projects.Delete"));
+
+        var tasks = group.AddPermission(CompanyEmployeeProjectPermissions.Tasks.Default, L("Permission:Tasks"));
+        tasks.AddChild(CompanyEmployeeProjectPermissions.Tasks.Create, L("Permission:Tasks.Create"));
+        tasks.AddChild(CompanyEmployeeProjectPermissions.Tasks.Update, L("Permission:Tasks.Update"));
+        tasks.AddChild(CompanyEmployeeProjectPermissions.Tasks.Delete, L("Permission:Tasks.Delete"));
     }
 
     private static LocalizableString L(string name)

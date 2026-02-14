@@ -1,6 +1,7 @@
 using CompanyEmployeeProject.Companies;
 using CompanyEmployeeProject.Employees;
 using CompanyEmployeeProject.Projects;
+using CompanyEmployeeProject.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
@@ -60,6 +61,7 @@ public class CompanyEmployeeProjectDbContext :
     public DbSet<Employee> Employees { get; set; }
     public DbSet<Project> Projects { get; set; }
     public DbSet<EmployeeProject> EmployeeProjects { get; set; }
+    public DbSet<Task> Tasks { get; set; }
 
     public CompanyEmployeeProjectDbContext(DbContextOptions<CompanyEmployeeProjectDbContext> options)
         : base(options)
@@ -88,5 +90,6 @@ public class CompanyEmployeeProjectDbContext :
         builder.ApplyConfiguration(new EntityFrameworkCore.Employees.EmployeeConfiguration());
         builder.ApplyConfiguration(new EntityFrameworkCore.Projects.ProjectConfiguration());
         builder.ApplyConfiguration(new EntityFrameworkCore.Projects.EmployeeProjectConfiguration());
+        builder.ApplyConfiguration(new EntityFrameworkCore.Tasks.TaskConfiguration());
     }
 }

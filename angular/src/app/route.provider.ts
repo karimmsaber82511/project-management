@@ -40,6 +40,14 @@ function configureRoutes(routesService: RoutesService) {
         layout: eLayoutType.application,
         requiredPolicy: permissions.projects.default,
       },
+      {
+        path: '/tasks',
+        name: 'CompanyEmployeeProject::Tasks',
+        iconClass: 'fas fa-tasks',
+        order: 5,
+        layout: eLayoutType.application,
+        requiredPolicy: permissions.tasks.default,
+      },
     ]);
   };
 }

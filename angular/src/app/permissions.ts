@@ -21,4 +21,10 @@ export const permissions = {
     update: 'CompanyEmployeeProject.Projects.Update',
     delete: 'CompanyEmployeeProject.Projects.Delete',
   },
+  tasks: {
+    default: 'CompanyEmployeeProject.Tasks',
+    create: 'CompanyEmployeeProject.Tasks.Create',
+    update: 'CompanyEmployeeProject.Tasks.Update',
+    delete: 'CompanyEmployeeProject.Tasks.Delete',
+  },
 } as const;

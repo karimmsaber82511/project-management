@@ -19,6 +19,10 @@ export const appRoutes: Routes = [
     loadChildren: () => import('./projects/projects.routes').then(m => m.projectsRoutes),
   },
   {
+    path: 'tasks',
+    loadChildren: () => import('./tasks/tasks.routes').then(m => m.tasksRoutes),
+  },
+  {
     path: 'account',
     loadChildren: () => import('@abp/ng.account').then(m => m.createRoutes()),
   },

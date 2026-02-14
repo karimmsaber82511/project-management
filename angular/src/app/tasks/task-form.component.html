@@ -1,0 +1,62 @@
+<div class="card">
+  <div class="card-header">
+    <h5 class="card-title mb-0">{{ id ? 'Edit' : 'New' }} Task</h5>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="mb-3" validationTarget>
+        <label class="form-label" for="title">Title <span class="text-danger">*</span></label>
+        <input id="title" type="text" class="form-control" formControlName="title" />
+        <div class="invalid-feedback">Title is required (max 200 characters).</div>
+      </div>
+
+      <div class="mb-3" validationTarget>
+        <label class="form-label" for="description">Description</label>
+        <textarea id="description" class="form-control" formControlName="description" rows="3"></textarea>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3" validationTarget>
+          <label class="form-label" for="status">Status</label>
+          <select id="status" class="form-select" formControlName="status">
+            <option [value]="0">To Do</option>
+            <option [value]="1">In Progress</option>
+            <option [value]="2">Done</option>
+          </select>
+        </div>
+        <div class="col-md-6 mb-3" validationTarget>
+          <label class="form-label" for="dueDate">Due Date</label>
+          <input id="dueDate" type="date" class="form-control" formControlName="dueDate" />
+        </div>
+      </div>
+
+      <div class="mb-3" validationTarget>
+        <label class="form-label" for="projectId">Project <span class="text-danger">*</span></label>
+        <select id="projectId" class="form-select" formControlName="projectId">
+          <option value="">-- Select Project --</option>
+          @for (p of projects; track p.id) {
+            <option [value]="p.id">{{ p.name }}</option>
+          }
+        </select>
+        <div class="invalid-feedback">Project is required.</div>
+      </div>
+
+      <div class="mb-3" validationTarget>
+        <label class="form-label" for="assignedToId">Assigned To</label>
+        <select id="assignedToId" class="form-select" formControlName="assignedToId">
+          <option value="">-- Unassigned --</option>
+          @for (e of employees; track e.id) {
+            <option [value]="e.id">{{ e.firstName }} {{ e.lastName }}</option>
+          }
+        </select>
+      </div>
+
+      <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid || saving">
+          {{ saving ? 'Saving...' : 'Save' }}
+        </button>
+        <a class="btn btn-secondary" routerLink="/tasks">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
