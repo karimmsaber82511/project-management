@@ -46,6 +46,19 @@ Browser: `http://localhost:4242`
 
 ---
 
+## Screenshots
+
+### Companies
+![Companies](docs/images/companies.png)
+
+### Employees
+![Employees](docs/images/employees.png)
+
+### Projects
+![Projects](docs/images/projects.png)
+
+---
+
 ## What’s Included
 
 - **Backend:** Companies, Employees, Projects (CRUD, permissions, localization).
