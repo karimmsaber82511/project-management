@@ -2,14 +2,13 @@ import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CompanyService } from '../proxy/companies/company.service';
 import { PagedResultDto, PermissionDirective } from '@abp/ng.core';
-import { LocalizationPipe } from '@abp/ng.core';
 import type { CompanyDto, CompanyGetListInput } from '../proxy/companies/models';
 import { permissions } from '../permissions';
 
 @Component({
   selector: 'app-company-list',
   standalone: true,
-  imports: [RouterLink, LocalizationPipe, PermissionDirective],
+  imports: [RouterLink, PermissionDirective],
   templateUrl: './company-list.component.html',
 })
 export class CompanyListComponent implements OnInit {
